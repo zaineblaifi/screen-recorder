@@ -1,13 +1,64 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<html>
+  <head>
+    <title>Enregistrement d'écran</title>
+    
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+        }
+  
+        button {
+          padding: 10px 20px;
+          font-size: 16px;
+          background-color: #007bff;
+          color: #fff;
+          border: none;
+          cursor: pointer;
+        }
+  
+        button:disabled {
+          background-color: #ccc;
+          cursor: not-allowed;
+        }
+  
+        video {
+          width: 640px;
+          height: 480px;
+          margin: 20px;
+        }
+  
+        ul {
+          list-style: none;
+          padding: 0;
+          margin-top: 20px;
+        }
+  
+        li {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 10px;
+          border-bottom: 1px solid #ccc;
+        }
+  
+        li:last-child {
+          border-bottom: none;
+        }
+  
+        a {
+          color: #007bff;
+          text-decoration: none;
+        }
+      </style>
+  </head>
+  <body>
+    <button id="start-button">Démarrer l'enregistrement</button>
+    <button id="stop-button" disabled>Arrêter l'enregistrement</button>
+
+    <video id="preview" width="640" height="480" autoplay></video>
+    <ul id="recordings-list"></ul>
     <script src="index.js"></script>
-</head>
-<body>
-    <button onclick="startRecording()" id="start-button">Start</button>
-    <button >End</button>
-</body>
+    
 </html>
+
