@@ -38,7 +38,7 @@
       let mediaRecorder;
       let recordedChunks = [];
 
-      async function startRecording() {
+      async function startCameraRecording() {
         try {
           const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
 
@@ -84,7 +84,7 @@
       }
 
       const startButton = document.getElementById('start-button');
-      startButton.addEventListener('click', startRecording);
+      startButton.addEventListener('click', startCameraRecording);
 
       const stopButton = document.getElementById('stop-button');
       stopButton.addEventListener('click', stopRecording);

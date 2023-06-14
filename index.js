@@ -1,15 +1,15 @@
+function masquer() {
+  document.getElementById("stop-button").disabled = true;
+  document.getElementById("stop-cbutton").disabled = true;
+}
 let mediaRecorder;
 const chunks = [];
 const recordings = [];
+
 function startRecording() {
   const displayOptions = {
     video: { width: 1920, height: 1080, frameRate: 30 },
-    audio: {
-      echoCancellation: true, // Annulation de l'écho
-      noiseSuppression: true, // Suppression du bruit
-      sampleRate: 44100, // Taux d'échantillonnage audio (en Hz)
-      channelCount: 2, // Nombre de canaux audio (1 pour mono, 2 pour stéréo)
-    },
+    audio: true,
   };
 
   navigator.mediaDevices
@@ -41,10 +41,7 @@ function stopRecording() {
     const videoPreview = document.getElementById("preview");
     videoPreview.src = URL.createObjectURL(blob);
     videoPreview.controls = true;
-    /*const downloadLink = document.createElement('a');
-            downloadLink.href = URL.createObjectURL(blob);
-            downloadLink.download = 'enregistrement.webm';
-            downloadLink.click();*/
+
     const recording = {
       blob: blob,
       url: URL.createObjectURL(blob),
@@ -54,10 +51,12 @@ function stopRecording() {
 
     recordings.push(recording);
     renderRecordings();
+
     document.getElementById("start-button").disabled = false;
     document.getElementById("stop-button").disabled = true;
   };
 }
+
 function renderRecordings() {
   const recordingsList = document.getElementById("recordings-list");
   recordingsList.innerHTML = "";
@@ -68,7 +67,7 @@ function renderRecordings() {
             <span>${recording.name}</span>
             <span>${recording.date}</span>
             <a href="${recording.url}" download="${recording.name}.webm">Télécharger</a>
-            `;
+          `;
 
     recordingsList.appendChild(recordingItem);
   });

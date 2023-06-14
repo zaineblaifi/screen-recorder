@@ -1,64 +1,89 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Enregistrement d'écran</title>
-    
+    <title>Enregistrement vidéo avec la caméra</title>
     <style>
-        body {
-          font-family: Arial, sans-serif;
-        }
-  
-        button {
-          padding: 10px 20px;
-          font-size: 16px;
-          background-color: #007bff;
-          color: #fff;
-          border: none;
-          cursor: pointer;
-        }
-  
-        button:disabled {
-          background-color: #ccc;
-          cursor: not-allowed;
-        }
-  
-        video {
-          width: 640px;
-          height: 480px;
-          margin: 20px;
-        }
-  
-        ul {
-          list-style: none;
-          padding: 0;
-          margin-top: 20px;
-        }
-  
-        li {
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          padding: 10px;
-          border-bottom: 1px solid #ccc;
-        }
-  
-        li:last-child {
-          border-bottom: none;
-        }
-  
-        a {
-          color: #007bff;
-          text-decoration: none;
-        }
-      </style>
+      body {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+      }
+
+      .section {
+        margin-right: 20px;
+      }
+
+      .section h2 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .section video {
+        width: 640px;
+        height: 480px;
+        margin-top: 10px;
+      }
+
+      .section button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        cursor: pointer;
+        margin-bottom: 10px;
+      }
+
+      .section button:disabled {
+        background-color: #ccc;
+        cursor: not-allowed;
+      }
+
+      .section ul {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .section li {
+        margin-bottom: 10px;
+      }
+
+      .section li span {
+        margin-right: 10px;
+      }
+
+      .section li a {
+        color: #007bff;
+        text-decoration: none;
+      }
+
+      .section li a:hover {
+        text-decoration: underline;
+      }
+    </style>
   </head>
   <body>
-    <button id="start-button">Démarrer l'enregistrement</button>
-    <button id="stop-button" disabled>Arrêter l'enregistrement</button>
+    <div class="section">
+      <h2>Enregistrement de l'écran</h2>
+      <button id="start-button">Démarrer l'enregistrement</button>
+      <button id="stop-button" disabled>Arrêter l'enregistrement</button>
+      <video id="preview" width="640" height="480" autoplay></video>
+      <ul id="recordings-list"></ul>
+      <script src="index.js"></script>
+    </div>
 
-    <video id="preview" width="640" height="480" autoplay></video>
-    <ul id="recordings-list"></ul>
-    <script src="index.js"></script>
+    <div class="section">
+      <h2>Enregistrement de la caméra</h2>
+      <button id="start-cbutton">Démarrer l'enregistrement</button>
+      <button id="stop-cbutton" disabled>Arrêter l'enregistrement</button>
+      <video id="previe" width="640" height="480" autoplay></video>
+      <ul id="record-list"></ul>
+      <script src="camera.js"></script>
+    </div>
     
+  </body>
 </html>
+
 
